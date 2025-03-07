@@ -28,6 +28,13 @@ export function getCourseData(subject: string) {
   });
 }
 
+export async function getCourseDataTracking(subject_id: string) {
+  const res = await axios.get(
+      `http://localhost:8080/api/course/code:${subject_id}`,
+  );
+  return res.data;
+}
+
 export function getSectionData(data: { [key: string]: ClientCourseType }) {
   return useQueries({
     queries: Object.values(data).map((course: ClientCourseType) => {
@@ -50,4 +57,11 @@ export function getSectionData(data: { [key: string]: ClientCourseType }) {
       };
     },
   });
+}
+
+export async function getCourseObject(subject_id: string, code_id: string) {
+  const res = await axios.get(
+    `http://localhost:8080/api/singlecourse/:${subject_id},${code_id}`,
+  );
+  return res.data.course[0];
 }

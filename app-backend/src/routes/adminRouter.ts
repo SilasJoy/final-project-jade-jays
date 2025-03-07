@@ -10,6 +10,7 @@ import {
 import Course from "../persistent/CoursePersistence.js";
 import Section from "../persistent/SectionPersistence.js";
 import Subject from "../persistent/SubjectPersistence.js";
+import getPrereqs from "@/Prereqs/getPrereqs";
 
 const router: Router = Router();
 
@@ -127,6 +128,8 @@ router.get("/populate_database", async (req: Request, res: Response) => {
       }
 
       if (!courses[`${code_abbrev}${code_number}`]) {
+        const reqs = getPrereqs(code_abbrev, code_number);
+
         courses[`${code_abbrev}${code_number}`] = {
           code: code_number,
           title: title,
@@ -144,6 +147,7 @@ router.get("/populate_database", async (req: Request, res: Response) => {
           offering_periods: Array.from(terms),
           academic_period: courseData.Starting_Academic_Period_Type,
           course_tags: courseData.Course_Tags.split(" :: "),
+          prereq: reqs,
         };
       }
     }

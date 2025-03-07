@@ -7,6 +7,7 @@ import adminRoutes from "./routes/adminRouter.js";
 import courseRoutes from "./routes/courseRouter";
 import subjectRoutes from "./routes/subjectRouter";
 import sectionRoutes from "./routes/sectionRouter";
+import singleCourseRoutes from "./routes/singleCourseRouter";
 
 export function initApp(): express.Express {
   const app = express();
@@ -27,6 +28,7 @@ export function initApp(): express.Express {
   app.use("/api/course/", courseRoutes);
   app.use("/api/subject/", subjectRoutes);
   app.use("/api/section/", sectionRoutes);
+  app.use("/api/singlecourse/", singleCourseRoutes);
 
   return app;
 }

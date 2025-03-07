@@ -5,6 +5,8 @@ import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { AppLayout } from "@/components/AppLayout/AppLayout.tsx";
 import { Courses } from "@/routes/Courses/Courses.tsx";
 import { Schedule } from "@/routes/Schedule/Schedule.tsx";
+import { Tracking } from "@/routes/Tracking";
+import { FlowChart } from "@/routes/FlowChart/FlowChart.tsx";
 
 const theme = createTheme({
   activeClassName: "",
@@ -54,6 +56,8 @@ export default function App() {
             <Route element={<AppLayout />}>
               <Route path={"/"} index element={<Courses />} />
               <Route path={"/schedule"} index element={<Schedule />} />
+              <Route path={"/tracking"} index element={<Tracking />} />
+              <Route path={"/flow"} index element={<FlowChart />} />
             </Route>
           </Routes>
         </BrowserRouter>

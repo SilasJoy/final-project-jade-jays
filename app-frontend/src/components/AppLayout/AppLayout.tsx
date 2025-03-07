@@ -48,6 +48,34 @@ export function AppLayout() {
               </Title>
             </UnstyledButton>
           </div>
+          <div className={classes.headerMenu}>
+            <UnstyledButton
+              className={classes.menuButton}
+              renderRoot={({ className, ...others }) => (
+                <NavLink
+                  to={"/tracking"}
+                  className={cx(className)}
+                  {...others}
+                />
+              )}
+            >
+              <Title order={4} fw={"600"}>
+                Tracking
+              </Title>
+            </UnstyledButton>
+          </div>
+          <div className={classes.headerMenu}>
+            <UnstyledButton
+              className={classes.menuButton}
+              renderRoot={({ className, ...others }) => (
+                <NavLink to={"/flow"} className={cx(className)} {...others} />
+              )}
+            >
+              <Title order={4} fw={"600"}>
+                Flow Chart
+              </Title>
+            </UnstyledButton>
+          </div>
         </div>
       </AppShell.Header>
       <AppShell.Main className={classes.main}>
